@@ -1,5 +1,8 @@
 # DatavizChallenge-ENTPE
-Dataviz Challenge - Ecole Nationale des Travaux Publics de l'Etat
+Dataviz Challenge - Ecole Nationale des Travaux Publics de l'Etat - 1er et 2 Février 2023
+
+- Notebooks
+- Data
 
 ## Données
 - Cartofriches
@@ -31,6 +34,7 @@ Dataviz Challenge - Ecole Nationale des Travaux Publics de l'Etat
 - Noms de friches et histoire wikipédia wikidata sparql
 - Histoire de friche
 - Dates de cessation d'activité et de commencement
+- Reconversion de friches
 
 ## Bouts de code
 - Mapillary
@@ -39,11 +43,29 @@ Dataviz Challenge - Ecole Nationale des Travaux Publics de l'Etat
 - Intersections
 - Différents tampons
 
-## Représentation
+## Tutoriaux
+- Atlas QGIS
+
+## Représentations
 - Treemap friches, artificialisation
 - Atlas
 - Narration
 - Dessiner quelque chose avec les formes de friches
+
+## Ressources Dataviz
+- https://r-graph-gallery.com/
+- https://datavizproject.com/
+- https://www.data-to-viz.com/
+- https://github.com/OrdnanceSurvey/GeoDataViz-Toolkit
+- https://github.com/z3tt/beyond-bar-and-box-plots/blob/main/README.md
+- https://thinkr.fr/les-pieges-de-la-representation-de-donnees/
+- https://handsondataviz.org/
+
+## Sources d'inspiration
+- https://mtmx.github.io/
+- flowingdata
+- infosthetics
+- https://www.reddit.com/r/MapPorn/
 
 ## Slide de présentation animateurs
 - Diagramme succès dataviz
