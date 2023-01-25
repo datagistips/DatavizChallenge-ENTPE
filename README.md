@@ -1,11 +1,16 @@
 # DatavizChallenge-ENTPE
 Dataviz Challenge - Ecole Nationale des Travaux Publics de l'Etat - 1er et 2 Février 2023
 
+Arbo :
+
 - Notebooks
 - Data
 
 Lien Note BOX :  
 https://cerema.box.com/s/k6kew3nmxfdx23iaj33am7umv075q2pv
+
+Pad Colibris :  
+https://pad.colibris-outilslibres.org/p/data
 
 ## Données
 - Cartofriches
@@ -26,12 +31,18 @@ https://cerema.box.com/s/k6kew3nmxfdx23iaj33am7umv075q2pv
 ## Données préparées
 Mettre les liens vers les données
 
+### Dynamiques
 - [] Nombre de friches par commune
+- [] Flux d'artificialisation et nombre de communes
+
+### Accessibilité
+- [x] Distance mairie (à vol d'oiseau) : friches_mairie.gpkg
+- [x] Distance aux arrêts de bus : friches_stops.gpkg
+
+### Espaces
+- [x] Occupation du sol (dans un rayon d'1 km) : friches_ocsol.gpkg
 - [] Végétalisation
 - [] Altitude moyenne
-- [] Flux d'artificialisation et nombre de communes
-- [x] Distance mairie (à vol d'oiseau)
-- [x] Occupation du sol (dans un rayon d'1 km)
 
 ## Analyses et représentations
 ### Analyses
