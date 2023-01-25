@@ -1,0 +1,152 @@
+---
+title: "GTFS"
+output: html_notebook
+---
+
+On lit les arrêts de transport France Entière et on calcule la distance à vol d'oiseau entre la friche et l'arrêt le plus proche
+
+```{r}
+library(tidyverse)
+library(jsonlite)
+```
+
+On lit le JSON datasets de tranport.data.gouv.fr :
+```{r}
+url <- "https://transport.data.gouv.fr/api/datasets"
+j <- read_json(url)
+```
+
+```{r}
+length(j)
+```
+
+
+```{r}
+library(glue)
+
+for(i in 1:length(j)) {
+  # print(i)
+  if(length(j[[i]]$resources) == 0) next
+  if(j[[i]]$resources[[1]]$format == "GTFS") {
+    print(i)
+    
+    aom_name <- j[[i]]$aom$name
+    if(is.null(aom_name)) aom_name <- "null"
+    
+    aom_siren <-j[[i]]$aom$siren
+    if(is.null(aom_siren)) aom_siren <- "null"
+    
+    id <- j[[i]]$id
+    
+    file_name <- glue("{aom_name}--{aom_siren}--{id}.zip")
+    file_path <- file.path("../data/GTFS", file_name)
+    if(file.exists(file_path)) next
+    url <- j[[i]]$resources[[1]]$url
+    tryCatch({
+      download.file(url, file_path, mode = "wb")
+    }, error = function(e) {return()})
+  }
+}
+```
+
+Nombre de zips :
+```{r}
+l <- list.files("../data/GTFS", "zip", full.names = T)
+length(l)
+```
+
+On lit le fichier stops dans un zip :
+```{r}
+stops <- read.table(unz("../data/GTFS/Bordeaux Métropole--243300316--5ef1f091c37ec97bc6c53cf5.zip", "stops.txt"), header = T, quote = "\"", sep=",", encoding = "UTF-8")
+```
+On ne retient que certaines colonnes :
+```{r}
+stops <- stops %>% select(stop_name, stop_lon, stop_lat)
+```
+
+
+On itère dans le dossier
+```{r}
+out <- vector(mode = "list")
+for(i in 1:length(l)) {
+  print(i)
+  filepath <- l[[i]]
+  out[[i]] <- tryCatch({read.table(unz(filepath, "stops.txt"), header = T, quote = "\"", sep=",", encoding = "UTF-8") %>% select(stop_name, stop_lon, stop_lat)}, error = function(e) return())
+}
+```
+
+Quels sont les zips avec des problèmes ?
+```{r}
+w <- which(sapply(out, function(x) length(x) == 0))
+print(w)
+print(length(w))
+```
+On retient seulement les éléments valides :
+```{r}
+out2 <- out[-w]
+```
+On agrège les données pour ces éléments :
+```{r}
+stops <- do.call(rbind, out2)
+```
+On exporte les arrêts :
+```{r}
+write.csv(stops, "../outputs/stops.txt", sep = ",", quote=T)
+```
+
+On filtre les arrêts qui ont des coordonnées :
+```{r}
+stops2 <- stops %>% filter(!is.na(stop_lon) & !is.na(stop_lat))
+```
+
+On crée une couche spatiale des arrêts :
+```{r}
+stops2 <- st_as_sf(stops2, coords = c("stop_lon", "stop_lat"), crs = 4326)
+```
+
+On exporte la couche géographique :
+```{r}
+st_write(stops2, "../outputs/stops.gpkg", delete_dsn = T)
+```
+
+On calcule la distance aux arrêts de transport (à vol d'oiseau) :
+```{r}
+friches_points <- st_read("../data/friches_points.gpkg") %>% st_transform(2154)
+coords_friches <- st_coordinates(friches_points)
+
+stops2 <- stops2 %>% st_transform(2154)
+coords_stops <- st_coordinates(stops2)
+w <- which(!is.na(coords_stops[, 1]) & !is.na(coords_stops[, 2]))
+coords_stops <- coords_stops[w, ]
+stop_names <- stops2$stop_name[w]
+```
+
+On calcule les distances :
+```{r}
+library(FNN)
+
+nn <- get.knnx(coords_stops, coords_friches, k = 1)
+```
+
+Nom de l'arrêt et distance à l'arrêt :
+```{r}
+friches_points$stop_name <- stop_names[nn$nn.index]
+friches_points$stop_distance <- stop_names[nn$nn.dist]
+```
+
+Export :
+```{r}
+st_write(friches_points, "../outputs/friches_stops.gpkg", delete_dsn = T)
+```
+
+
+
+
+
+
+
+
+
+
+
+

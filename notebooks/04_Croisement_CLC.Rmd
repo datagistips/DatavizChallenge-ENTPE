@@ -1,0 +1,10 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+Ouvrir la couche friches tampon 1km : friches_tampon1km et CLC dans QGIS
+
+Utiliser 'Extraire par localisation' pour avoir les zones CLC intersectant le tampon => clc_sel
+
+Découper clc_sel par friches_tampon1km => friches_ocsol.gpkg avec l'outil 'Intersection'
