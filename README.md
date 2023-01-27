@@ -10,6 +10,8 @@ Dataviz Challenge - Ecole Nationale des Travaux Publics de l'Etat - 1er et 2 Fé
 
 ## Données
 ### Fournies
+Voir le dossier `data`
+
 - Cartofriches
 - Consommation d'espaces : https://artificialisation.developpement-durable.gouv.fr/suivi-consommation-espaces-naf#paragraph--2172
 - Communes et types (rurales, etc...) : https://www.insee.fr/fr/information/2028028
