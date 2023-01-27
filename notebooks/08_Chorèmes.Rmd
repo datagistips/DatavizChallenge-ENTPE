@@ -1,0 +1,31 @@
+---
+title: "Chorèmes"
+output: html_notebook
+---
+
+```{r}
+download.file("https://www.comeetie.fr/galerie/choremes/choremesvt.zip", "../data/choremesvt.zip", mode = "wb")
+```
+
+```{r}
+system('"C:\\Program Files\\7-Zip\\7z.exe" x "..\\data\\choremesvt.zip"')
+```
+```{r}
+f <- st_read("../data/choremesvt - Copie/choremesvt/")
+```
+Fusion des données
+```{r}
+l <- list.files("../data/choremesvt - Copie/", ".", recursive = T, full.names = T)
+```
+
+```{r}
+out <- lapply(l, function(x) st_read(x))
+```
+
+```{r}
+res <- do.call(rbind, out)
+```
+
+
+
+

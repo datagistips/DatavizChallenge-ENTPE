@@ -9,22 +9,22 @@ Dataviz Challenge - Ecole Nationale des Travaux Publics de l'Etat - 1er et 2 Fé
 - qgis
 
 ## Données
-### Initiales
+### Fournies
 - Cartofriches
 - Consommation d'espaces : https://artificialisation.developpement-durable.gouv.fr/suivi-consommation-espaces-naf#paragraph--2172
 - Communes et types (rurales, etc...) : https://www.insee.fr/fr/information/2028028
-- Couches haute résolution COPERNICUS : imperméabilisation, etc... (https://land.copernicus.eu/pan-european/high-resolution-layers)
 - Corine Land Cover
 	- Styles : https://github.com/igeofr/qgis_styles
+- Chorèmes de comeetie :
+	- https://www.comeetie.fr/galerie/choremes/choremesvt/
+	- https://www.comeetie.fr/galerie/choremes/choremesvt.zip
 - Relief BDALTI
+
+### Potentiellement intéressantes
 - Carroyage population
 - BDTOPO, végétalisation, cours d'eau
-- RGC et position des mairies
-- OSMdata
 - Observatoire des territoires
-- Remonter le temps
-- Chorèmes de comeetie
-
+- Couches haute résolution COPERNICUS : imperméabilisation, etc... (https://land.copernicus.eu/pan-european/high-resolution-layers)
 
 ### Préparées
 Mettre les liens vers les données
