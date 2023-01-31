@@ -1,0 +1,20 @@
+# Import de la données 
+
+## On va sur le site data.gouv.fr pour récupérer la donnée en format gpkg
+https://www.data.gouv.fr/fr/datasets/sites-references-dans-cartofriches/
+
+
+## On importe la données des friches, en format gpkg
+library(sf) # manipuler des données spatiales
+library(dplyr) # manipuler des données
+DataFriches <- st_read("files/friches_surfaces.gpkg")
+
+## On regarde rapidement ce qu'il y a dedans
+head(DataFriches)
+summary(DataFriches)
+
+
+# Exemple de Group by
+DataFriches %>% 
+group_by(comm_nom) %>% # choix de la variable d'aggrégation
+summarise(NombreDeFriches = n())  # choix des variables que l'on construit
