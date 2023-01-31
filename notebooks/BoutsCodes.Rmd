@@ -1,0 +1,85 @@
+---
+title: "Bouts de codes pour analyser les données Cartofriches"
+output: html_notebook
+---
+
+# Import des données
+
+1)  On télécharge la donnée sur le site de data.gouv.fr : <https://www.data.gouv.fr/fr/datasets/sites-references-dans-cartofriches/>
+
+2)  On importe la donnée en format gpkg
+
+```{r}
+library(sf)
+library(dplyr)
+  
+DataFriches <- st_read("files/friches_surfaces.gpkg")
+```
+
+3)  On regarde rapidement ce qu'il y a dedans
+
+```{r}
+head(DataFriches)
+summary(DataFriches)
+```
+
+# Exemples
+
+**EXEMPLE 1 : Group_by**
+
+```{r}
+DataGroupby <- DataFriches %>% 
+  group_by(comm_nom) %>% # choix de la variable d'aggrégation
+  summarise(Nombre = n()) # choix des variables à créer 
+```
+
+**EXEMPLE 2 : Jointure**
+
+```{r}
+DataArtificiation <- read.csv2()
+
+DataJointure <- DataFriches %>%
+  left_join(DataArtificiation, by = comm_insee)
+```
+
+**EXEMPLE 3 : Sunburst**
+
+```{r}
+# Import des packages
+library(d3r)
+library(sunburstR)
+
+# Création du dataframe approprié
+DataSunburst <- table(DataFriches$source_nom,DataFriches$urba_zone_type) %>%
+                                as.data.frame %>%
+  rename(level1 = Var1,
+         level2 = Var2,
+         size = Freq)
+DataSunburst
+
+# Création du graphique
+tree <- d3_nest(DataSunburst, value_cols = "size", root = "Ensemble des friches")
+sund2b(data = tree,
+         showLabels = T,
+                              tooltip = sund2bTooltip(
+           html = htmlwidgets::JS("
+function(nodedata, size, percent) {
+  return '<span style=\"font-weight: bold;\">' + nodedata.name + '</span>'
+}
+    ")
+         ),
+      breadcrumbs = sund2bBreadcrumb(
+    html = htmlwidgets::JS("
+function(nodedata, size, percent) {
+  return '<span style=\"font-weight: bold;\">' + nodedata.name + '</span>' + ' ' + size.toLocaleString() + ' friches ' + '(' + Math.trunc(percent.toFixed(2)*100) + '%' + ')'
+}
+    ")
+  )
+)
+```
+
+**EXEMPLE 4 : Dumbell**
+
+```{r}
+DataDumbell <- 
+```
