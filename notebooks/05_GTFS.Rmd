@@ -94,6 +94,11 @@ On exporte les arrêts :
 write.csv(stops, "../outputs/stops.txt", sep = ",", quote=T)
 ```
 
+On lit les arrêts
+```{r}
+stops <- read.csv("../outputs/stops.txt")
+```
+
 On filtre les arrêts qui ont des coordonnées :
 ```{r}
 stops2 <- stops %>% filter(!is.na(stop_lon) & !is.na(stop_lat))
@@ -111,9 +116,12 @@ st_write(stops2, "../outputs/stops.gpkg", delete_dsn = T)
 
 On calcule la distance aux arrêts de transport (à vol d'oiseau) :
 ```{r}
-friches_points <- st_read("../data/friches_points.gpkg") %>% st_transform(2154)
+friches_points <- st_read("../data/friches/02_preprocessing/friches_points.gpkg") %>% st_set_crs(4326) %>% st_transform(2154) %>% select(site_pk)
 coords_friches <- st_coordinates(friches_points)
+```
 
+
+```{r}
 stops2 <- stops2 %>% st_transform(2154)
 coords_stops <- st_coordinates(stops2)
 w <- which(!is.na(coords_stops[, 1]) & !is.na(coords_stops[, 2]))
@@ -131,7 +139,7 @@ nn <- get.knnx(coords_stops, coords_friches, k = 1)
 Nom de l'arrêt et distance à l'arrêt :
 ```{r}
 friches_points$stop_name <- stop_names[nn$nn.index]
-friches_points$stop_distance <- stop_names[nn$nn.dist]
+friches_points$stop_distance <- nn$nn.dist
 ```
 
 Export :

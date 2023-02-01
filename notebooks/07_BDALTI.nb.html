@@ -1803,76 +1803,30 @@ gdal_translate -of AAIGrid ta.vrt ta.asc</code></pre>
 <p>Ouverture de la donnée raster consolidée :</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShyYXN0ZXIpXG5gYGAifQ== -->
-<pre class="r"><code>library(raster)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShyYXN0ZXIpXG5yIDwtIHJhc3RlcihcIi4uL2RhdGEvYmRhbHRpL0JEQUxUSVYyLTc1TV9BU0NfTEFNQjkzX0ZYWF8yMDEzLTEwLTAxLzFfRE9OTkVFU19MSVZSQUlTT05fMjAxMy0xMC0wMDEzMC9CREFMVElWMl9NTlRfNzVNX0xBTUI5M19JR042OV9GUkFOQ0VNRVRSTzIwMTMwOTIwL3RhLmFzY1wiKVxuYGBgIn0= -->
+<pre class="r"><code>library(raster)
+r &lt;- raster(&quot;../data/bdalti/BDALTIV2-75M_ASC_LAMB93_FXX_2013-10-01/1_DONNEES_LIVRAISON_2013-10-00130/BDALTIV2_MNT_75M_LAMB93_IGN69_FRANCEMETRO20130920/ta.asc&quot;)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiV2FybmluZzogbGUgcGFja2FnZSDigJhyYXN0ZXLigJkgYSDDqXTDqSBjb21waWzDqSBhdmVjIGxhIHZlcnNpb24gUiA0LjAuNUxlIGNoYXJnZW1lbnQgYSBuw6ljZXNzaXTDqSBsZSBwYWNrYWdlIDogc3Bcbldhcm5pbmc6IGxlIHBhY2thZ2Ug4oCYc3DigJkgYSDDqXTDqSBjb21waWzDqSBhdmVjIGxhIHZlcnNpb24gUiA0LjAuNVdhcm5pbmcgbWVzc2FnZTpcbnJlcGxhY2luZyBwcmV2aW91cyBpbXBvcnQg4oCYbGlmZWN5Y2xlOjpsYXN0X3dhcm5pbmdz4oCZIGJ5IOKAmHJsYW5nOjpsYXN0X3dhcm5pbmdz4oCZIHdoZW4gbG9hZGluZyDigJhwaWxsYXLigJkgXG4ifQ== -->
-<pre><code>Warning: le package ‘raster’ a été compilé avec la version R 4.0.5Le chargement a nécessité le package : sp
-Warning: le package ‘sp’ a été compilé avec la version R 4.0.5Warning message:
-replacing previous import ‘lifecycle::last_warnings’ by ‘rlang::last_warnings’ when loading ‘pillar’ </code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuciA8LSByYXN0ZXIoXCIuLi9kYXRhL0JEQUxUSVYyLTc1TV9BU0NfTEFNQjkzX0ZYWF8yMDEzLTEwLTAxLzFfRE9OTkVFU19MSVZSQUlTT05fMjAxMy0xMC0wMDEzMC9CREFMVElWMl9NTlRfNzVNX0xBTUI5M19JR042OV9GUkFOQ0VNRVRSTzIwMTMwOTIwL3RhLmFzY1wiKVxuYGBgIn0= -->
-<pre class="r"><code>r &lt;- raster(&quot;../data/BDALTIV2-75M_ASC_LAMB93_FXX_2013-10-01/1_DONNEES_LIVRAISON_2013-10-00130/BDALTIV2_MNT_75M_LAMB93_IGN69_FRANCEMETRO20130920/ta.asc&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiUmVnaXN0ZXJlZCBTMyBtZXRob2RzIG92ZXJ3cml0dGVuIGJ5ICdodG1sdG9vbHMnOlxuICBtZXRob2QgICAgICAgICAgICAgICBmcm9tICAgICAgICAgXG4gIHByaW50Lmh0bWwgICAgICAgICAgIHRvb2xzOnJzdHVkaW9cbiAgcHJpbnQuc2hpbnkudGFnICAgICAgdG9vbHM6cnN0dWRpb1xuICBwcmludC5zaGlueS50YWcubGlzdCB0b29sczpyc3R1ZGlvXG4ifQ== -->
-<pre><code>Registered S3 methods overwritten by &#39;htmltools&#39;:
-  method               from         
-  print.html           tools:rstudio
-  print.shiny.tag      tools:rstudio
-  print.shiny.tag.list tools:rstudio</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiW1dBUk5JTkddIERlcHJlY2F0ZWQ6IC0tc2VsZi1jb250YWluZWQuIHVzZSAtLWVtYmVkLXJlc291cmNlcyAtLXN0YW5kYWxvbmVcbiJ9 -->
-<pre><code>[WARNING] Deprecated: --self-contained. use --embed-resources --standalone</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>Ouverture des données friches :</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShzZilcbmBgYCJ9 -->
-<pre class="r"><code>library(sf)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShzZilcbmZyaWNoZXNfcG9pbnRzIDwtIHN0X3JlYWQoXCIuLi9kYXRhL2ZyaWNoZXMvMDJfcHJlcHJvY2Vzc2luZy9mcmljaGVzX3BvaW50cy5ncGtnXCIpICU+JSBzdF9zZXRfY3JzKDQzMjYpICU+JSBzdF90cmFuc2Zvcm0oMjE1NCkgJT4lIGRwbHlyOjpzZWxlY3Qoc2l0ZV9waylcbmBgYCJ9 -->
+<pre class="r"><code>library(sf)
+friches_points &lt;- st_read(&quot;../data/friches/02_preprocessing/friches_points.gpkg&quot;) %&gt;% st_set_crs(4326) %&gt;% st_transform(2154) %&gt;% dplyr::select(site_pk)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiV2FybmluZzogbGUgcGFja2FnZSDigJhzZuKAmSBhIMOpdMOpIGNvbXBpbMOpIGF2ZWMgbGEgdmVyc2lvbiBSIDQuMC41TGlua2luZyB0byBHRU9TIDMuOS4wLCBHREFMIDMuMi4xLCBQUk9KIDcuMi4xXG4ifQ== -->
-<pre><code>Warning: le package ‘sf’ a été compilé avec la version R 4.0.5Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZnJpY2hlc19wb2ludHMgPC0gc3RfcmVhZChcIi4uL2RhdGEvZnJpY2hlc19wb2ludHMuZ3BrZ1wiKVxuYGBgIn0= -->
-<pre class="r"><code>friches_points &lt;- st_read(&quot;../data/friches_points.gpkg&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiUmVhZGluZyBsYXllciBgZl9YWScgZnJvbSBkYXRhIHNvdXJjZSBcbiAgYEM6XFxHaXQtUmVwb3NcXERhdGF2aXpDaGFsbGVuZ2UtRU5UUEVcXGRhdGFcXGZyaWNoZXNfcG9pbnRzLmdwa2cnIFxuICB1c2luZyBkcml2ZXIgYEdQS0cnXG5TaW1wbGUgZmVhdHVyZSBjb2xsZWN0aW9uIHdpdGggMjE0MzEgZmVhdHVyZXMgYW5kIDYyIGZpZWxkc1xuR2VvbWV0cnkgdHlwZTogUE9JTlRcbkRpbWVuc2lvbjogICAgIFhZXG5Cb3VuZGluZyBib3g6ICB4bWluOiAtNjEuNzQ2NjUgeW1pbjogLTIxLjMzMTQxIHhtYXg6IDU1LjgyMDg3IHltYXg6IDUxLjA2MTk5XG5HZW9kZXRpYyBDUlM6ICBXR1MgODRcbiJ9 -->
-<pre><code>Reading layer `f_XY&#39; from data source 
-  `C:\Git-Repos\DatavizChallenge-ENTPE\data\friches_points.gpkg&#39; 
+<!-- rnb-output-begin eyJkYXRhIjoiUmVhZGluZyBsYXllciBgZnJpY2hlc19wb2ludHMnIGZyb20gZGF0YSBzb3VyY2UgXG4gIGBDOlxcR2l0LVJlcG9zXFxEYXRhdml6Q2hhbGxlbmdlLUVOVFBFXFxkYXRhXFxmcmljaGVzXFwwMl9wcmVwcm9jZXNzaW5nXFxmcmljaGVzX3BvaW50cy5ncGtnJyBcbiAgdXNpbmcgZHJpdmVyIGBHUEtHJ1xuW1dBUk5JTkddIERlcHJlY2F0ZWQ6IC0tc2VsZi1jb250YWluZWQuIHVzZSAtLWVtYmVkLXJlc291cmNlcyAtLXN0YW5kYWxvbmVcblNpbXBsZSBmZWF0dXJlIGNvbGxlY3Rpb24gd2l0aCA4MzM1IGZlYXR1cmVzIGFuZCA2NCBmaWVsZHNcbkdlb21ldHJ5IHR5cGU6IFBPSU5UXG5EaW1lbnNpb246ICAgICBYWVxuQm91bmRpbmcgYm94OiAgeG1pbjogLTYxLjc0NjY1IHltaW46IC0yMS4zMzE0MSB4bWF4OiA1NS44MjA4NyB5bWF4OiA1MS4wNDc4OFxuR2VvZGV0aWMgQ1JTOiAgV0dTIDg0XG4ifQ== -->
+<pre><code>Reading layer `friches_points&#39; from data source 
+  `C:\Git-Repos\DatavizChallenge-ENTPE\data\friches\02_preprocessing\friches_points.gpkg&#39; 
   using driver `GPKG&#39;
-Simple feature collection with 21431 features and 62 fields
+[WARNING] Deprecated: --self-contained. use --embed-resources --standalone
+Simple feature collection with 8335 features and 64 fields
 Geometry type: POINT
 Dimension:     XY
-Bounding box:  xmin: -61.74665 ymin: -21.33141 xmax: 55.82087 ymax: 51.06199
+Bounding box:  xmin: -61.74665 ymin: -21.33141 xmax: 55.82087 ymax: 51.04788
 Geodetic CRS:  WGS 84</code></pre>
 <!-- rnb-output-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>Extraction des friches qualifiées et reprojection en Lambert</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0aWR5dmVyc2UpXG5gYGAifQ== -->
-<pre class="r"><code>library(tidyverse)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiUmVnaXN0ZXJlZCBTMyBtZXRob2RzIG92ZXJ3cml0dGVuIGJ5ICdkYnBseXInOlxuICBtZXRob2QgICAgICAgICBmcm9tXG4gIHByaW50LnRibF9sYXp5ICAgICBcbiAgcHJpbnQudGJsX3NxbCAgICAgIFxuLS0gQXR0YWNoaW5nIHBhY2thZ2VzIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSB0aWR5dmVyc2UgMS4zLjIgLS3iiJogZ2dwbG90MiAzLjMuNSAgICAg4oiaIHB1cnJyICAgMC4zLjRcbuKImiB0aWJibGUgIDMuMS42ICAgICDiiJogZHBseXIgICAxLjAuN1xu4oiaIHRpZHlyICAgMS4yLjAgICAgIOKImiBzdHJpbmdyIDEuNC4wXG7iiJogcmVhZHIgICAyLjEuMiAgICAg4oiaIGZvcmNhdHMgMC41LjFXYXJuaW5nOiBsZSBwYWNrYWdlIOKAmGdncGxvdDLigJkgYSDDqXTDqSBjb21waWzDqSBhdmVjIGxhIHZlcnNpb24gUiA0LjAuNVdhcm5pbmc6IGxlIHBhY2thZ2Ug4oCYdGliYmxl4oCZIGEgw6l0w6kgY29tcGlsw6kgYXZlYyBsYSB2ZXJzaW9uIFIgNC4wLjVXYXJuaW5nOiBsZSBwYWNrYWdlIOKAmHRpZHly4oCZIGEgw6l0w6kgY29tcGlsw6kgYXZlYyBsYSB2ZXJzaW9uIFIgNC4wLjVXYXJuaW5nOiBsZSBwYWNrYWdlIOKAmHJlYWRy4oCZIGEgw6l0w6kgY29tcGlsw6kgYXZlYyBsYSB2ZXJzaW9uIFIgNC4wLjVXYXJuaW5nOiBsZSBwYWNrYWdlIOKAmHB1cnJy4oCZIGEgw6l0w6kgY29tcGlsw6kgYXZlYyBsYSB2ZXJzaW9uIFIgNC4wLjVXYXJuaW5nOiBsZSBwYWNrYWdlIOKAmGRwbHly4oCZIGEgw6l0w6kgY29tcGlsw6kgYXZlYyBsYSB2ZXJzaW9uIFIgNC4wLjVXYXJuaW5nOiBsZSBwYWNrYWdlIOKAmHN0cmluZ3LigJkgYSDDqXTDqSBjb21waWzDqSBhdmVjIGxhIHZlcnNpb24gUiA0LjAuNVdhcm5pbmc6IGxlIHBhY2thZ2Ug4oCYZm9yY2F0c+KAmSBhIMOpdMOpIGNvbXBpbMOpIGF2ZWMgbGEgdmVyc2lvbiBSIDQuMC41LS0gQ29uZmxpY3RzIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSB0aWR5dmVyc2VfY29uZmxpY3RzKCkgLS1cbnggdGlkeXI6OmV4dHJhY3QoKSBtYXNrcyByYXN0ZXI6OmV4dHJhY3QoKVxueCBkcGx5cjo6ZmlsdGVyKCkgIG1hc2tzIHN0YXRzOjpmaWx0ZXIoKVxueCBkcGx5cjo6bGFnKCkgICAgIG1hc2tzIHN0YXRzOjpsYWcoKVxueCBkcGx5cjo6c2VsZWN0KCkgIG1hc2tzIHJhc3Rlcjo6c2VsZWN0KClcbiJ9 -->
-<pre><code>Registered S3 methods overwritten by &#39;dbplyr&#39;:
-  method         from
-  print.tbl_lazy     
-  print.tbl_sql      
--- Attaching packages --------------------------- tidyverse 1.3.2 --√ ggplot2 3.3.5     √ purrr   0.3.4
-√ tibble  3.1.6     √ dplyr   1.0.7
-√ tidyr   1.2.0     √ stringr 1.4.0
-√ readr   2.1.2     √ forcats 0.5.1Warning: le package ‘ggplot2’ a été compilé avec la version R 4.0.5Warning: le package ‘tibble’ a été compilé avec la version R 4.0.5Warning: le package ‘tidyr’ a été compilé avec la version R 4.0.5Warning: le package ‘readr’ a été compilé avec la version R 4.0.5Warning: le package ‘purrr’ a été compilé avec la version R 4.0.5Warning: le package ‘dplyr’ a été compilé avec la version R 4.0.5Warning: le package ‘stringr’ a été compilé avec la version R 4.0.5Warning: le package ‘forcats’ a été compilé avec la version R 4.0.5-- Conflicts ------------------------------ tidyverse_conflicts() --
-x tidyr::extract() masks raster::extract()
-x dplyr::filter()  masks stats::filter()
-x dplyr::lag()     masks stats::lag()
-x dplyr::select()  masks raster::select()</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZnJpY2hlc19wb2ludHMgPC0gZnJpY2hlc19wb2ludHMgJT4lIGRwbHlyOjpmaWx0ZXIoc291cmNlX25vbSAhPSBcIlNpdGUgQmFzaWFzIG91IEJhc29sIG5vbiB2w6lyaWZpw6kgcGFyIGxlIENlcmVtYVwiKSAlPiUgc3RfdHJhbnNmb3JtKDIxNTQpXG5gYGAifQ== -->
-<pre class="r"><code>friches_points &lt;- friches_points %&gt;% dplyr::filter(source_nom != &quot;Site Basias ou Basol non vérifié par le Cerema&quot;) %&gt;% st_transform(2154)</code></pre>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>Altitudes au niveau des points</p>
@@ -1881,10 +1835,8 @@ x dplyr::select()  masks raster::select()</code></pre>
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudiA8LSByYXN0ZXI6OmV4dHJhY3QociwgZnJpY2hlc19wb2ludHMpXG5gYGAifQ== -->
 <pre class="r"><code>v &lt;- raster::extract(r, friches_points)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiW1dBUk5JTkddIERlcHJlY2F0ZWQ6IC0tc2VsZi1jb250YWluZWQuIHVzZSAtLWVtYmVkLXJlc291cmNlcyAtLXN0YW5kYWxvbmVcbltXQVJOSU5HXSBEZXByZWNhdGVkOiAtLXNlbGYtY29udGFpbmVkLiB1c2UgLS1lbWJlZC1yZXNvdXJjZXMgLS1zdGFuZGFsb25lXG5bV0FSTklOR10gRGVwcmVjYXRlZDogLS1zZWxmLWNvbnRhaW5lZC4gdXNlIC0tZW1iZWQtcmVzb3VyY2VzIC0tc3RhbmRhbG9uZVxuIn0= -->
-<pre><code>[WARNING] Deprecated: --self-contained. use --embed-resources --standalone
-[WARNING] Deprecated: --self-contained. use --embed-resources --standalone
-[WARNING] Deprecated: --self-contained. use --embed-resources --standalone</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiW1dBUk5JTkddIERlcHJlY2F0ZWQ6IC0tc2VsZi1jb250YWluZWQuIHVzZSAtLWVtYmVkLXJlc291cmNlcyAtLXN0YW5kYWxvbmVcbiJ9 -->
+<pre><code>[WARNING] Deprecated: --self-contained. use --embed-resources --standalone</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -1899,17 +1851,13 @@ x dplyr::select()  masks raster::select()</code></pre>
 <p>Calcul de la pente (prend du temps)</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY3JzKHIpIDwtIENSUyhcIitpbml0PWVwc2c6MjE1NFwiKVxuc2xvcGUgPC0gdGVycmFpbihyLCBvcHQgPSAnc2xvcGUnLCB1bml0cyA9ICdkZWdyZWVzJylcbmBgYCJ9 -->
-<pre class="r"><code>crs(r) &lt;- CRS(&quot;+init=epsg:2154&quot;)
-slope &lt;- terrain(r, opt = &#39;slope&#39;, units = &#39;degrees&#39;)</code></pre>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>Pente au niveau des points</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZnJpY2hlc19wb2ludHMkcGVudGUgPC0gcmFzdGVyOjpleHRyYWN0KHNsb3BlLCBmcmljaGVzX3BvaW50cylcbmBgYCJ9 -->
-<pre class="r"><code>friches_points$pente &lt;- raster::extract(slope, friches_points)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBmcmljaGVzX3BvaW50cyRwZW50ZSA8LSByYXN0ZXI6OmV4dHJhY3Qoc2xvcGUsIGZyaWNoZXNfcG9pbnRzKVxuYGBgIn0= -->
+<pre class="r"><code># friches_points$pente &lt;- raster::extract(slope, friches_points)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -1919,12 +1867,11 @@ slope &lt;- terrain(r, opt = &#39;slope&#39;, units = &#39;degrees&#39;)</code><
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3Rfd3JpdGUoZnJpY2hlc19wb2ludHMsIFwiLi4vb3V0cHV0cy9mcmljaGVzX2FsdGl0dWRlLmdwa2dcIiwgZGVsZXRlX2RzbiA9IFQpXG5gYGAifQ== -->
 <pre class="r"><code>st_write(friches_points, &quot;../outputs/friches_altitude.gpkg&quot;, delete_dsn = T)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiRGVsZXRpbmcgc291cmNlIGAuLi9vdXRwdXRzL2ZyaWNoZXNfYWx0aXR1ZGUuZ3BrZycgdXNpbmcgZHJpdmVyIGBHUEtHJ1xuV3JpdGluZyBsYXllciBgZnJpY2hlc19hbHRpdHVkZScgdG8gZGF0YSBzb3VyY2UgXG4gIGAuLi9vdXRwdXRzL2ZyaWNoZXNfYWx0aXR1ZGUuZ3BrZycgdXNpbmcgZHJpdmVyIGBHUEtHJ1xuV3JpdGluZyA4MjQwIGZlYXR1cmVzIHdpdGggNjQgZmllbGRzIGFuZCBnZW9tZXRyeSB0eXBlIFBvaW50LlxuW1dBUk5JTkddIERlcHJlY2F0ZWQ6IC0tc2VsZi1jb250YWluZWQuIHVzZSAtLWVtYmVkLXJlc291cmNlcyAtLXN0YW5kYWxvbmVcbiJ9 -->
+<!-- rnb-output-begin eyJkYXRhIjoiRGVsZXRpbmcgc291cmNlIGAuLi9vdXRwdXRzL2ZyaWNoZXNfYWx0aXR1ZGUuZ3BrZycgdXNpbmcgZHJpdmVyIGBHUEtHJ1xuV3JpdGluZyBsYXllciBgZnJpY2hlc19hbHRpdHVkZScgdG8gZGF0YSBzb3VyY2UgXG4gIGAuLi9vdXRwdXRzL2ZyaWNoZXNfYWx0aXR1ZGUuZ3BrZycgdXNpbmcgZHJpdmVyIGBHUEtHJ1xuV3JpdGluZyA4MzM1IGZlYXR1cmVzIHdpdGggMiBmaWVsZHMgYW5kIGdlb21ldHJ5IHR5cGUgUG9pbnQuXG4ifQ== -->
 <pre><code>Deleting source `../outputs/friches_altitude.gpkg&#39; using driver `GPKG&#39;
 Writing layer `friches_altitude&#39; to data source 
   `../outputs/friches_altitude.gpkg&#39; using driver `GPKG&#39;
-Writing 8240 features with 64 fields and geometry type Point.
-[WARNING] Deprecated: --self-contained. use --embed-resources --standalone</code></pre>
+Writing 8335 features with 2 fields and geometry type Point.</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -1963,7 +1910,7 @@ for(i in 1:10) {
 <!-- rnb-chunk-end -->
 </div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIkJEQUxUSSINCm91dHB1dDogaHRtbF9ub3RlYm9vaw0KLS0tDQoNCk9uIHLDqWN1cMOocmUgbCdhbHRpdHVkZSBldCBsYSBwZW50ZSBzdXIgY2hhcXVlIGZyaWNoZQ0KDQpUw6lsw6ljaGFyZ2VtZW50IGRlIGxhIEJEQUxUSQ0KYGBge3J9DQpkb3dubG9hZC5maWxlKCJodHRwczovL2RhdGEuY3F1ZXN0Lm9yZy9pZ24vYmRhbHRpL0JEQUxUSVYyLTc1TV9BU0NfTEFNQjkzX0ZYWF8yMDEzLTEwLTAxLjd6IiwgIi4uL2RhdGEvQkRBTFRJVjItNzVNX0FTQ19MQU1COTNfRlhYXzIwMTMtMTAtMDEuN3oiLCBtb2RlID0gIndiIikNCmBgYA0KRXh0cmFjdGlvbiBkZXMgZG9ubsOpZXMgZG9ubsOpZXMgQkRBTFRJDQpgYGB7cn0NCnN5c3RlbSgnIkM6XFByb2dyYW0gRmlsZXNcNy1aaXBcN3ouZXhlIiB4IEJEQUxUSVYyLTc1TV9BU0NfTEFNQjkzX0ZYWF8yMDEzLTEwLTAxLjd6JykNCmBgYA0KDQpUYWJsZWF1IGQnYXNzZW1ibGFnZQ0KYGBgc2hlbGwNCkM6XEZXVG9vbHMyLjQuN1xzZXRmdy5iYXQNCmdkYWx0aW5kZXggdGEuc2hwICouYXNjDQpvZ3Iyb2dyIC1mICJjc3YiIHRhLmNzdiB0YS5zaHANCmBgYA0KTGVjdHVyZSBkdSBDU1YNCmBgYHtyfQ0KZiA8LSByZWFkLmNzdigiLi4vZGF0YS9CREFMVElWMi03NU1fQVNDX0xBTUI5M19GWFhfMjAxMy0xMC0wMS8xX0RPTk5FRVNfTElWUkFJU09OXzIwMTMtMTAtMDAxMzAvQkRBTFRJVjJfTU5UXzc1TV9MQU1COTNfSUdONjlfRlJBTkNFTUVUUk8yMDEzMDkyMC90YS5jc3YvdGEuY3N2IikNCmBgYA0KDQpDb252ZXJzaW9uIGVuIG1vbm8tZGFsbGUNCmBgYGJhc2gNCmdkYWxidWlsZHZydCAtaW5wdXRfZmlsZV9saXN0IHRhLmNzdlx0YS5jc3YgdGEudnJ0DQpnZGFsX3RyYW5zbGF0ZSAtb2YgQUFJR3JpZCB0YS52cnQgdGEuYXNjDQpgYGANCg0KT3V2ZXJ0dXJlIGRlIGxhIGRvbm7DqWUgcmFzdGVyIGNvbnNvbGlkw6llIDoNCmBgYHtyfQ0KbGlicmFyeShyYXN0ZXIpDQpyIDwtIHJhc3RlcigiLi4vZGF0YS9CREFMVElWMi03NU1fQVNDX0xBTUI5M19GWFhfMjAxMy0xMC0wMS8xX0RPTk5FRVNfTElWUkFJU09OXzIwMTMtMTAtMDAxMzAvQkRBTFRJVjJfTU5UXzc1TV9MQU1COTNfSUdONjlfRlJBTkNFTUVUUk8yMDEzMDkyMC90YS5hc2MiKQ0KYGBgDQoNCk91dmVydHVyZSBkZXMgZG9ubsOpZXMgZnJpY2hlcyA6DQpgYGB7cn0NCmxpYnJhcnkoc2YpDQpmcmljaGVzX3BvaW50cyA8LSBzdF9yZWFkKCIuLi9kYXRhL2ZyaWNoZXNfcG9pbnRzLmdwa2ciKQ0KYGBgDQpFeHRyYWN0aW9uIGRlcyBmcmljaGVzIHF1YWxpZmnDqWVzIGV0IHJlcHJvamVjdGlvbiBlbiBMYW1iZXJ0DQpgYGB7cn0NCmxpYnJhcnkodGlkeXZlcnNlKQ0KZnJpY2hlc19wb2ludHMgPC0gZnJpY2hlc19wb2ludHMgJT4lIGRwbHlyOjpmaWx0ZXIoc291cmNlX25vbSAhPSAiU2l0ZSBCYXNpYXMgb3UgQmFzb2wgbm9uIHbDqXJpZmnDqSBwYXIgbGUgQ2VyZW1hIikgJT4lIHN0X3RyYW5zZm9ybSgyMTU0KQ0KYGBgDQpBbHRpdHVkZXMgYXUgbml2ZWF1IGRlcyBwb2ludHMNCmBgYHtyfQ0KdiA8LSByYXN0ZXI6OmV4dHJhY3QociwgZnJpY2hlc19wb2ludHMpDQpgYGANCg0KQWpvdXQgZGVzIGluZm9ybWF0aW9ucyBkJ2FsdGl0dWRlDQpgYGB7cn0NCmZyaWNoZXNfcG9pbnRzJGFsdGl0dWRlIDwtIHYNCmBgYA0KDQpDYWxjdWwgZGUgbGEgcGVudGUgKHByZW5kIGR1IHRlbXBzKQ0KYGBge3J9DQpjcnMocikgPC0gQ1JTKCIraW5pdD1lcHNnOjIxNTQiKQ0Kc2xvcGUgPC0gdGVycmFpbihyLCBvcHQgPSAnc2xvcGUnLCB1bml0cyA9ICdkZWdyZWVzJykNCmBgYA0KDQpQZW50ZSBhdSBuaXZlYXUgZGVzIHBvaW50cw0KYGBge3J9DQpmcmljaGVzX3BvaW50cyRwZW50ZSA8LSByYXN0ZXI6OmV4dHJhY3Qoc2xvcGUsIGZyaWNoZXNfcG9pbnRzKQ0KYGBgDQoNCkV4cG9ydA0KYGBge3J9DQpzdF93cml0ZShmcmljaGVzX3BvaW50cywgIi4uL291dHB1dHMvZnJpY2hlc19hbHRpdHVkZS5ncGtnIiwgZGVsZXRlX2RzbiA9IFQpDQpgYGANCg0KDQojIyBPbGQNCk91dmVydHVyZSBkdSB0YWJsZWF1IGQnYXNzZW1ibGFnZQ0KYGBge3J9DQp0YSA8LSBzdF9yZWFkKCIuLi9kYXRhL0JEQUxUSVYyLTc1TV9BU0NfTEFNQjkzX0ZYWF8yMDEzLTEwLTAxLzFfRE9OTkVFU19MSVZSQUlTT05fMjAxMy0xMC0wMDEzMC9CREFMVElWMl9NTlRfNzVNX0xBTUI5M19JR042OV9GUkFOQ0VNRVRSTzIwMTMwOTIwL3RhLnNocCIpICU+JSBzdF9zZXRfY3JzKDIxNTQpDQpgYGANCkludGVyc2VjdGlvbnMgZnJpY2hlcyBldCB0YWJsZWF1IGQnYXNzZW1ibGFnZQ0KYGBge3J9DQpwYXRoIDwtICIuLi9kYXRhL0JEQUxUSVYyLTc1TV9BU0NfTEFNQjkzX0ZYWF8yMDEzLTEwLTAxLzFfRE9OTkVFU19MSVZSQUlTT05fMjAxMy0xMC0wMDEzMC9CREFMVElWMl9NTlRfNzVNX0xBTUI5M19JR042OV9GUkFOQ0VNRVRSTzIwMTMwOTIwLyINCm91dCA8LSB2ZWN0b3IobW9kZSA9ICJsaXN0IikNCnN0YXJ0ID0gU3lzLnRpbWUoKQ0KIyBmb3IoaSBpbiAxOm5yb3coZnJpY2hlc19wb2ludHMpKSB7DQpmb3IoaSBpbiAxOjEwKSB7DQogIHByaW50KGkpDQogIGZlYXQgPC0gZnJpY2hlc19wb2ludHNbaSwgXQ0KICB3IDwtIHN0X2ludGVyc2VjdHMoZmVhdCwgdGEpDQogIGRhbGxlIDwtIHRhJGxvY2F0aW9uW2FzLm51bWVyaWModyldDQogIHIgPC0gcmFzdGVyKGZpbGUucGF0aChwYXRoLCBkYWxsZSkpDQogIGNycyhyKSA8LSBDUlMoIitpbml0PWVwc2c6MjE1NCIpDQogIHNsb3BlIDwtIHRlcnJhaW4ociwgb3B0ID0gJ3Nsb3BlJywgdW5pdHMgPSAnZGVncmVlcycpDQogIHZfYWx0aXR1ZGUgPC0gcmFzdGVyOjpleHRyYWN0KHIsIGZlYXQpDQogIHZfc2xvcGUgPC0gcmFzdGVyOjpleHRyYWN0KHNsb3BlLCBmZWF0KQ0KICBvdXRbW2ldXSA8LSBkYXRhLmZyYW1lKGFsdGl0dWRlID0gdl9hbHRpdHVkZSwgc2xvcGUgPSB2X3Nsb3BlKQ0KICBwcmludChTeXMudGltZSgpIC0gc3RhcnQpDQp9DQpgYGA=</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIkJEQUxUSSINCm91dHB1dDogaHRtbF9ub3RlYm9vaw0KLS0tDQoNCk9uIHLDqWN1cMOocmUgbCdhbHRpdHVkZSBldCBsYSBwZW50ZSBzdXIgY2hhcXVlIGZyaWNoZQ0KDQpUw6lsw6ljaGFyZ2VtZW50IGRlIGxhIEJEQUxUSQ0KYGBge3J9DQpkb3dubG9hZC5maWxlKCJodHRwczovL2RhdGEuY3F1ZXN0Lm9yZy9pZ24vYmRhbHRpL0JEQUxUSVYyLTc1TV9BU0NfTEFNQjkzX0ZYWF8yMDEzLTEwLTAxLjd6IiwgIi4uL2RhdGEvQkRBTFRJVjItNzVNX0FTQ19MQU1COTNfRlhYXzIwMTMtMTAtMDEuN3oiLCBtb2RlID0gIndiIikNCmBgYA0KRXh0cmFjdGlvbiBkZXMgZG9ubsOpZXMgZG9ubsOpZXMgQkRBTFRJDQpgYGB7cn0NCnN5c3RlbSgnIkM6XFByb2dyYW0gRmlsZXNcNy1aaXBcN3ouZXhlIiB4IEJEQUxUSVYyLTc1TV9BU0NfTEFNQjkzX0ZYWF8yMDEzLTEwLTAxLjd6JykNCmBgYA0KDQpUYWJsZWF1IGQnYXNzZW1ibGFnZQ0KYGBgc2hlbGwNCkM6XEZXVG9vbHMyLjQuN1xzZXRmdy5iYXQNCmdkYWx0aW5kZXggdGEuc2hwICouYXNjDQpvZ3Iyb2dyIC1mICJjc3YiIHRhLmNzdiB0YS5zaHANCmBgYA0KTGVjdHVyZSBkdSBDU1YNCmBgYHtyfQ0KZiA8LSByZWFkLmNzdigiLi4vZGF0YS9CREFMVElWMi03NU1fQVNDX0xBTUI5M19GWFhfMjAxMy0xMC0wMS8xX0RPTk5FRVNfTElWUkFJU09OXzIwMTMtMTAtMDAxMzAvQkRBTFRJVjJfTU5UXzc1TV9MQU1COTNfSUdONjlfRlJBTkNFTUVUUk8yMDEzMDkyMC90YS5jc3YvdGEuY3N2IikNCmBgYA0KDQpDb252ZXJzaW9uIGVuIG1vbm8tZGFsbGUNCmBgYGJhc2gNCmdkYWxidWlsZHZydCAtaW5wdXRfZmlsZV9saXN0IHRhLmNzdlx0YS5jc3YgdGEudnJ0DQpnZGFsX3RyYW5zbGF0ZSAtb2YgQUFJR3JpZCB0YS52cnQgdGEuYXNjDQpgYGANCg0KT3V2ZXJ0dXJlIGRlIGxhIGRvbm7DqWUgcmFzdGVyIGNvbnNvbGlkw6llIDoNCmBgYHtyfQ0KbGlicmFyeShyYXN0ZXIpDQpyIDwtIHJhc3RlcigiLi4vZGF0YS9iZGFsdGkvQkRBTFRJVjItNzVNX0FTQ19MQU1COTNfRlhYXzIwMTMtMTAtMDEvMV9ET05ORUVTX0xJVlJBSVNPTl8yMDEzLTEwLTAwMTMwL0JEQUxUSVYyX01OVF83NU1fTEFNQjkzX0lHTjY5X0ZSQU5DRU1FVFJPMjAxMzA5MjAvdGEuYXNjIikNCmBgYA0KDQpPdXZlcnR1cmUgZGVzIGRvbm7DqWVzIGZyaWNoZXMgOg0KYGBge3J9DQpsaWJyYXJ5KHNmKQ0KZnJpY2hlc19wb2ludHMgPC0gc3RfcmVhZCgiLi4vZGF0YS9mcmljaGVzLzAyX3ByZXByb2Nlc3NpbmcvZnJpY2hlc19wb2ludHMuZ3BrZyIpICU+JSBzdF9zZXRfY3JzKDQzMjYpICU+JSBzdF90cmFuc2Zvcm0oMjE1NCkgJT4lIGRwbHlyOjpzZWxlY3Qoc2l0ZV9waykNCmBgYA0KQWx0aXR1ZGVzIGF1IG5pdmVhdSBkZXMgcG9pbnRzDQpgYGB7cn0NCnYgPC0gcmFzdGVyOjpleHRyYWN0KHIsIGZyaWNoZXNfcG9pbnRzKQ0KYGBgDQoNCkFqb3V0IGRlcyBpbmZvcm1hdGlvbnMgZCdhbHRpdHVkZQ0KYGBge3J9DQpmcmljaGVzX3BvaW50cyRhbHRpdHVkZSA8LSB2DQpgYGANCg0KQ2FsY3VsIGRlIGxhIHBlbnRlIChwcmVuZCBkdSB0ZW1wcykNCmBgYHtyfQ0KY3JzKHIpIDwtIENSUygiK2luaXQ9ZXBzZzoyMTU0IikNCnNsb3BlIDwtIHRlcnJhaW4ociwgb3B0ID0gJ3Nsb3BlJywgdW5pdHMgPSAnZGVncmVlcycpDQpgYGANCg0KUGVudGUgYXUgbml2ZWF1IGRlcyBwb2ludHMNCmBgYHtyfQ0KIyBmcmljaGVzX3BvaW50cyRwZW50ZSA8LSByYXN0ZXI6OmV4dHJhY3Qoc2xvcGUsIGZyaWNoZXNfcG9pbnRzKQ0KYGBgDQoNCkV4cG9ydA0KYGBge3J9DQpzdF93cml0ZShmcmljaGVzX3BvaW50cywgIi4uL291dHB1dHMvZnJpY2hlc19hbHRpdHVkZS5ncGtnIiwgZGVsZXRlX2RzbiA9IFQpDQpgYGANCg0KDQojIyBPbGQNCk91dmVydHVyZSBkdSB0YWJsZWF1IGQnYXNzZW1ibGFnZQ0KYGBge3J9DQp0YSA8LSBzdF9yZWFkKCIuLi9kYXRhL0JEQUxUSVYyLTc1TV9BU0NfTEFNQjkzX0ZYWF8yMDEzLTEwLTAxLzFfRE9OTkVFU19MSVZSQUlTT05fMjAxMy0xMC0wMDEzMC9CREFMVElWMl9NTlRfNzVNX0xBTUI5M19JR042OV9GUkFOQ0VNRVRSTzIwMTMwOTIwL3RhLnNocCIpICU+JSBzdF9zZXRfY3JzKDIxNTQpDQpgYGANCkludGVyc2VjdGlvbnMgZnJpY2hlcyBldCB0YWJsZWF1IGQnYXNzZW1ibGFnZQ0KYGBge3J9DQpwYXRoIDwtICIuLi9kYXRhL0JEQUxUSVYyLTc1TV9BU0NfTEFNQjkzX0ZYWF8yMDEzLTEwLTAxLzFfRE9OTkVFU19MSVZSQUlTT05fMjAxMy0xMC0wMDEzMC9CREFMVElWMl9NTlRfNzVNX0xBTUI5M19JR042OV9GUkFOQ0VNRVRSTzIwMTMwOTIwLyINCm91dCA8LSB2ZWN0b3IobW9kZSA9ICJsaXN0IikNCnN0YXJ0ID0gU3lzLnRpbWUoKQ0KIyBmb3IoaSBpbiAxOm5yb3coZnJpY2hlc19wb2ludHMpKSB7DQpmb3IoaSBpbiAxOjEwKSB7DQogIHByaW50KGkpDQogIGZlYXQgPC0gZnJpY2hlc19wb2ludHNbaSwgXQ0KICB3IDwtIHN0X2ludGVyc2VjdHMoZmVhdCwgdGEpDQogIGRhbGxlIDwtIHRhJGxvY2F0aW9uW2FzLm51bWVyaWModyldDQogIHIgPC0gcmFzdGVyKGZpbGUucGF0aChwYXRoLCBkYWxsZSkpDQogIGNycyhyKSA8LSBDUlMoIitpbml0PWVwc2c6MjE1NCIpDQogIHNsb3BlIDwtIHRlcnJhaW4ociwgb3B0ID0gJ3Nsb3BlJywgdW5pdHMgPSAnZGVncmVlcycpDQogIHZfYWx0aXR1ZGUgPC0gcmFzdGVyOjpleHRyYWN0KHIsIGZlYXQpDQogIHZfc2xvcGUgPC0gcmFzdGVyOjpleHRyYWN0KHNsb3BlLCBmZWF0KQ0KICBvdXRbW2ldXSA8LSBkYXRhLmZyYW1lKGFsdGl0dWRlID0gdl9hbHRpdHVkZSwgc2xvcGUgPSB2X3Nsb3BlKQ0KICBwcmludChTeXMudGltZSgpIC0gc3RhcnQpDQp9DQpgYGA=</div>
 
 
 

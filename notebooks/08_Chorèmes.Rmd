@@ -10,16 +10,27 @@ download.file("https://www.comeetie.fr/galerie/choremes/choremesvt.zip", "../dat
 ```{r}
 system('"C:\\Program Files\\7-Zip\\7z.exe" x "..\\data\\choremesvt.zip"')
 ```
+Liste des répertoires
 ```{r}
-f <- st_read("../data/choremesvt - Copie/choremesvt/")
+l <- list.files("../data/choremesvt - Copie/choremesvt/", ".", full.names = T)
 ```
-Fusion des données
+On va créer la couche chorèmes 11
 ```{r}
-l <- list.files("../data/choremesvt - Copie/", ".", recursive = T, full.names = T)
+l <- list.files("../data/choremesvt - Copie/choremesvt/11/", ".", recursive = T, full.names = T)
+```
+```{r}
+length(l)
 ```
 
-```{r}
-out <- lapply(l, function(x) st_read(x))
+```{r, warning = FALSE, message = FALSE, results = FALSE}
+options(warn=-1)
+
+library(sf)
+out <- lapply(1:length(l), function(i) {
+  print(i)
+  elt <- l[[i]]
+  st_read(elt)
+  })
 ```
 
 ```{r}

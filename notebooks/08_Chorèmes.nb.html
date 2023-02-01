@@ -1771,25 +1771,30 @@ display: none;
 <pre class="r"><code>system(&#39;&quot;C:\\Program Files\\7-Zip\\7z.exe&quot; x &quot;..\\data\\choremesvt.zip&quot;&#39;)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Liste des répertoires</p>
+<!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZiA8LSBzdF9yZWFkKFwiLi4vZGF0YS9jaG9yZW1lc3Z0IC0gQ29waWUvY2hvcmVtZXN2dC9cIilcbmBgYCJ9 -->
-<pre class="r"><code>f &lt;- st_read(&quot;../data/choremesvt - Copie/choremesvt/&quot;)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubCA8LSBsaXN0LmZpbGVzKFwiLi4vZGF0YS9jaG9yZW1lc3Z0IC0gQ29waWUvY2hvcmVtZXN2dC9cIiwgXCIuXCIsIGZ1bGwubmFtZXMgPSBUKVxuYGBgIn0= -->
+<pre class="r"><code>l &lt;- list.files(&quot;../data/choremesvt - Copie/choremesvt/&quot;, &quot;.&quot;, full.names = T)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>Fusion des données</p>
+<p>On va créer la couche chorèmes 11</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubCA8LSBsaXN0LmZpbGVzKFwiLi4vZGF0YS9jaG9yZW1lc3Z0IC0gQ29waWUvXCIsIFwiLlwiLCByZWN1cnNpdmUgPSBULCBmdWxsLm5hbWVzID0gVClcbmBgYCJ9 -->
-<pre class="r"><code>l &lt;- list.files(&quot;../data/choremesvt - Copie/&quot;, &quot;.&quot;, recursive = T, full.names = T)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubCA8LSBsaXN0LmZpbGVzKFwiLi4vZGF0YS9jaG9yZW1lc3Z0IC0gQ29waWUvY2hvcmVtZXN2dC8xMS9cIiwgXCIuXCIsIHJlY3Vyc2l2ZSA9IFQsIGZ1bGwubmFtZXMgPSBUKVxuYGBgIn0= -->
+<pre class="r"><code>l &lt;- list.files(&quot;../data/choremesvt - Copie/choremesvt/11/&quot;, &quot;.&quot;, recursive = T, full.names = T)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGVuZ3RoKGwpXG5gYGAifQ== -->
+<pre class="r"><code>length(l)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxub3V0IDwtIGxhcHBseShsLCBmdW5jdGlvbih4KSBzdF9yZWFkKHgpKVxuYGBgIn0= -->
-<pre class="r"><code>out &lt;- lapply(l, function(x) st_read(x))</code></pre>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
@@ -1801,7 +1806,7 @@ display: none;
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIkNob3LDqG1lcyINCm91dHB1dDogaHRtbF9ub3RlYm9vaw0KLS0tDQoNCmBgYHtyfQ0KZG93bmxvYWQuZmlsZSgiaHR0cHM6Ly93d3cuY29tZWV0aWUuZnIvZ2FsZXJpZS9jaG9yZW1lcy9jaG9yZW1lc3Z0LnppcCIsICIuLi9kYXRhL2Nob3JlbWVzdnQuemlwIiwgbW9kZSA9ICJ3YiIpDQpgYGANCg0KYGBge3J9DQpzeXN0ZW0oJyJDOlxcUHJvZ3JhbSBGaWxlc1xcNy1aaXBcXDd6LmV4ZSIgeCAiLi5cXGRhdGFcXGNob3JlbWVzdnQuemlwIicpDQpgYGANCmBgYHtyfQ0KZiA8LSBzdF9yZWFkKCIuLi9kYXRhL2Nob3JlbWVzdnQgLSBDb3BpZS9jaG9yZW1lc3Z0LyIpDQpgYGANCkZ1c2lvbiBkZXMgZG9ubsOpZXMNCmBgYHtyfQ0KbCA8LSBsaXN0LmZpbGVzKCIuLi9kYXRhL2Nob3JlbWVzdnQgLSBDb3BpZS8iLCAiLiIsIHJlY3Vyc2l2ZSA9IFQsIGZ1bGwubmFtZXMgPSBUKQ0KYGBgDQoNCmBgYHtyfQ0Kb3V0IDwtIGxhcHBseShsLCBmdW5jdGlvbih4KSBzdF9yZWFkKHgpKQ0KYGBgDQoNCmBgYHtyfQ0KcmVzIDwtIGRvLmNhbGwocmJpbmQsIG91dCkNCmBgYA0KDQoNCg0KDQo=</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIkNob3LDqG1lcyINCm91dHB1dDogaHRtbF9ub3RlYm9vaw0KLS0tDQoNCmBgYHtyfQ0KZG93bmxvYWQuZmlsZSgiaHR0cHM6Ly93d3cuY29tZWV0aWUuZnIvZ2FsZXJpZS9jaG9yZW1lcy9jaG9yZW1lc3Z0LnppcCIsICIuLi9kYXRhL2Nob3JlbWVzdnQuemlwIiwgbW9kZSA9ICJ3YiIpDQpgYGANCg0KYGBge3J9DQpzeXN0ZW0oJyJDOlxcUHJvZ3JhbSBGaWxlc1xcNy1aaXBcXDd6LmV4ZSIgeCAiLi5cXGRhdGFcXGNob3JlbWVzdnQuemlwIicpDQpgYGANCkxpc3RlIGRlcyByw6lwZXJ0b2lyZXMNCmBgYHtyfQ0KbCA8LSBsaXN0LmZpbGVzKCIuLi9kYXRhL2Nob3JlbWVzdnQgLSBDb3BpZS9jaG9yZW1lc3Z0LyIsICIuIiwgZnVsbC5uYW1lcyA9IFQpDQpgYGANCk9uIHZhIGNyw6llciBsYSBjb3VjaGUgY2hvcsOobWVzIDExDQpgYGB7cn0NCmwgPC0gbGlzdC5maWxlcygiLi4vZGF0YS9jaG9yZW1lc3Z0IC0gQ29waWUvY2hvcmVtZXN2dC8xMS8iLCAiLiIsIHJlY3Vyc2l2ZSA9IFQsIGZ1bGwubmFtZXMgPSBUKQ0KYGBgDQpgYGB7cn0NCmxlbmd0aChsKQ0KYGBgDQoNCmBgYHtyLCB3YXJuaW5nID0gRkFMU0UsIG1lc3NhZ2UgPSBGQUxTRSwgcmVzdWx0cyA9IEZBTFNFfQ0Kb3B0aW9ucyh3YXJuPS0xKQ0KDQpsaWJyYXJ5KHNmKQ0Kb3V0IDwtIGxhcHBseSgxOmxlbmd0aChsKSwgZnVuY3Rpb24oaSkgew0KICBwcmludChpKQ0KICBlbHQgPC0gbFtbaV1dDQogIHN0X3JlYWQoZWx0KQ0KICB9KQ0KYGBgDQoNCmBgYHtyfQ0KcmVzIDwtIGRvLmNhbGwocmJpbmQsIG91dCkNCmBgYA0KDQoNCg0KDQo=</div>
 
 
 

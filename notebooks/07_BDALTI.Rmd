@@ -34,18 +34,13 @@ gdal_translate -of AAIGrid ta.vrt ta.asc
 Ouverture de la donnée raster consolidée :
 ```{r}
 library(raster)
-r <- raster("../data/BDALTIV2-75M_ASC_LAMB93_FXX_2013-10-01/1_DONNEES_LIVRAISON_2013-10-00130/BDALTIV2_MNT_75M_LAMB93_IGN69_FRANCEMETRO20130920/ta.asc")
+r <- raster("../data/bdalti/BDALTIV2-75M_ASC_LAMB93_FXX_2013-10-01/1_DONNEES_LIVRAISON_2013-10-00130/BDALTIV2_MNT_75M_LAMB93_IGN69_FRANCEMETRO20130920/ta.asc")
 ```
 
 Ouverture des données friches :
 ```{r}
 library(sf)
-friches_points <- st_read("../data/friches_points.gpkg")
-```
-Extraction des friches qualifiées et reprojection en Lambert
-```{r}
-library(tidyverse)
-friches_points <- friches_points %>% dplyr::filter(source_nom != "Site Basias ou Basol non vérifié par le Cerema") %>% st_transform(2154)
+friches_points <- st_read("../data/friches/02_preprocessing/friches_points.gpkg") %>% st_set_crs(4326) %>% st_transform(2154) %>% dplyr::select(site_pk)
 ```
 Altitudes au niveau des points
 ```{r}
@@ -65,7 +60,7 @@ slope <- terrain(r, opt = 'slope', units = 'degrees')
 
 Pente au niveau des points
 ```{r}
-friches_points$pente <- raster::extract(slope, friches_points)
+# friches_points$pente <- raster::extract(slope, friches_points)
 ```
 
 Export
