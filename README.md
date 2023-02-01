@@ -22,29 +22,12 @@ Voir le dossier `data`
 	- https://www.comeetie.fr/galerie/choremes/choremesvt.zip
 - Relief BDALTI
 
-### Potentiellement intéressantes
-- Carroyage population
-- BDTOPO, végétalisation, cours d'eau
-- Observatoire des territoires
-- Couches haute résolution COPERNICUS : imperméabilisation, etc... (https://land.copernicus.eu/pan-european/high-resolution-layers)
-
 ### Préparées
 Voir le dossier `outputs`
 
-Mettre les liens vers les données
-
-- Occupation du sol (Corine Land Cover) → Fait Mathieu
-- Accessibilité aux TC  → Fait Mathieu
-- Distance au centre-ville (mairie)  → Fait Mathieu
-- Zonage d’urbanisme (directement dans les données)
-- Altitude de la friche → LIEN BDALTI MATHIEU
-- Zones denses → LIEN carroyage
-- Consommation 
-
-
 #### Dynamiques
-- Nombre de friches par commune
-- Flux d'artificialisation et nombre de communes
+- [ ] Nombre de friches par commune
+- [ ] Flux d'artificialisation et nombre de friches par communes
 
 #### Accessibilité
 - [x] Distance mairie (à vol d'oiseau) : friches_mairie.gpkg
@@ -53,8 +36,16 @@ Mettre les liens vers les données
 #### Espaces
 - [x] Occupation du sol (dans un rayon d'1 km) : friches_clc.gpkg
 	- Styles : https://github.com/igeofr/qgis_styles
-- [x] Altitude moyenne :friches_altitude.gpkg
+- [x] Altitude moyenne : friches_altitude.gpkg
 - [ ] Végétalisation
+- [x] Zonage d’urbanisme (directement dans les données)
+- [ ] Zones denses → LIEN carroyage
+
+### Potentiellement intéressantes
+- Carroyage population
+- BDTOPO, végétalisation, cours d'eau
+- Observatoire des territoires
+- Couches haute résolution COPERNICUS : imperméabilisation, etc... (https://land.copernicus.eu/pan-european/high-resolution-layers)
 
 ## Analyses et bouts de code
 <!--
