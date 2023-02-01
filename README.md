@@ -7,13 +7,10 @@ Voir le dossier [`data`](data)
 - [Friches qualifiées issues de Cartofriches (points et surfaces)](data/friches/02_preprocessing)
 
 ## Données contextuelles
-- Consommation d'espaces : https://artificialisation.developpement-durable.gouv.fr/suivi-consommation-espaces-naf#paragraph--2172
-- Communes et types (rurales, etc...) : https://www.insee.fr/fr/information/2028028
-- Corine Land Cover ([styles QGIS à appliquer](https://github.com/igeofr/qgis_styles))
-- Chorèmes de comeetie :
-	- https://www.comeetie.fr/galerie/choremes/choremesvt/
-	- https://www.comeetie.fr/galerie/choremes/choremesvt.zip
-- Relief BDALTI
+- **Consommation d'espaces** : https://artificialisation.developpement-durable.gouv.fr/suivi-consommation-espaces-naf#paragraph--2172
+- Communes et **types** (rurales, etc...) : https://www.insee.fr/fr/information/2028028
+- Corine Land **Cover** ([styles QGIS à appliquer](https://github.com/igeofr/qgis_styles))
+- **Relief** BDALTI
 
 ## Données préparées et croisées
 Voir le dossier [`outputs`](outputs) pour les données  
@@ -34,40 +31,46 @@ Voir le dossier [`notebooks`](notebooks) pour les scripts de préparation des do
 - [x] Zonage d’urbanisme (directement dans les données)
 
 ## Données autres potentiellement intéressantes
-- [Carroyage population et zones densément peuplées](https://www.insee.fr/fr/statistiques/4176290?sommaire=4176305)
-- BDTOPO, végétalisation, cours d'eau
-- Observatoire des territoires et autres indicateurs communaux
-- Couches haute résolution COPERNICUS : imperméabilisation, etc... (https://land.copernicus.eu/pan-european/high-resolution-layers)
+- [**Carroyage** population et zones densément peuplées](https://www.insee.fr/fr/statistiques/4176290?sommaire=4176305)
+- **BDTOPO**, végétalisation, cours d'eau
+- **Observatoire** des territoires et autres indicateurs communaux
+- Couches haute résolution **COPERNICUS** : imperméabilisation, etc... (https://land.copernicus.eu/pan-european/high-resolution-layers)
+- **Chorèmes** de comeetie :
+	- https://www.comeetie.fr/galerie/choremes/choremesvt/
+	- https://www.comeetie.fr/galerie/choremes/choremesvt.zip
 
 ## Bouts de code
-- [Import de GPKG en R et python des friches](notebooks/BoutsCodes.Rmd)
-- [Un group by par communes](notebooks/BoutsCodes.Rmd)
-- [Un exemple de jointure](notebooks/BoutsCodes.Rmd)
-- Treemap friches, artificialisation : https://r-graph-gallery.com/treemap.html
-- Density et heat map https://trucvietle.me/r/tutorial/2017/01/18/spatial-heat-map-plotting-using-r.html
-- Sunburst : NP
-- [Différents tampons](notebooks/11_Tampons.Rmd)
-- dumbell : NP
-- streamgraph : https://datagistips.github.io/dataviz-masterclass/4-notebook-stream.html
+### [`notebooks/BoutsCodes.Rmd`](notebooks/BoutsCodes.Rmd)
+- [**Import** de GPKG en R et python des friches](notebooks/BoutsCodes.Rmd)
+- [Un **group** by par communes](notebooks/BoutsCodes.Rmd)
+- [Un exemple de **jointure**](notebooks/BoutsCodes.Rmd)
+- [**Sunburst**](notebooks/BoutsCodes.Rmd)
+- [Dumbell et **violin**](notebooks/BoutsCodes.Rmd)
+
+### Autres bouts de code
+- **Treemap** friches, artificialisation : https://r-graph-gallery.com/treemap.html
+- **Density** et **heat map** https://trucvietle.me/r/tutorial/2017/01/18/spatial-heat-map-plotting-using-r.html
+- [Différents **tampons**](notebooks/11_Tampons.Rmd)
+- **Streamgraph** : https://datagistips.github.io/dataviz-masterclass/4-notebook-stream.html
 
 ### Bouts de code Bonus
-- [x] Déplacer un objet (par ex. une commune) sur un autre pour comparer les tailles : https://gist.github.com/datagistips/6cd56402b7fadc1f858d1cdfa717b3e7
-- [x] Utilisation de l'API IGN pour calculer des itinéraires : https://gist.github.com/datagistips/799ca3e4c4af32dfd97dc8a2b4959674
-- [x] Images obliques birdseye pour faire des vues à la Yann Arthus Bertrand : https://gist.github.com/datagistips/ad7e5ad9da4b94f3a7f5d1b9f652cf66
-- DBScan : http://www.sthda.com/english/wiki/wiki.php?id_contents=7940
+- [x] **Déplacer** un objet (par ex. une commune) sur un autre pour comparer les tailles : https://gist.github.com/datagistips/6cd56402b7fadc1f858d1cdfa717b3e7
+- [x] Utilisation de l'API IGN pour calculer des **itinéraires** : https://gist.github.com/datagistips/799ca3e4c4af32dfd97dc8a2b4959674
+- [x] Images obliques **birdseye** pour faire des vues à la **Yann Arthus Bertrand** : https://gist.github.com/datagistips/ad7e5ad9da4b94f3a7f5d1b9f652cf66
+- **DBScan** et clustering spatial : http://www.sthda.com/english/wiki/wiki.php?id_contents=7940
 
 ## Ressources
-### QGIS
+### Atlas QGIS
 - Atlas géographique https://www.sigterritoires.fr/index.php/faire-un-atlas-avec-qgis/
 - Atlas thématique https://naturagis.fr/qgis/atlas-repartition-especes-qgis/
 
 ### R
-- https://r-graph-gallery.com/ : des dataviz et codes associés sous R
-- https://www.htmlwidgets.org/ et https://toulouse-dataviz.fr/hackaviz/editions-precedentes/ : graphiques et librairies interactives pour R
+- https://r-graph-gallery.com/ : des **dataviz** et **codes** associés sous R
+- https://www.htmlwidgets.org/ et https://toulouse-dataviz.fr/hackaviz/editions-precedentes/ : graphiques et librairies **interactives** pour R
 
 ### Dataviz
-- https://www.data-to-viz.com/ : comment choisir sa dataviz en fonction de ses données ?
-- https://datavizproject.com/ : liste de dataviz
+- https://www.data-to-viz.com/ : comment **choisir** sa dataviz en fonction de ses données ?
+- https://datavizproject.com/ : **liste** de dataviz
 
 ### Dataviz autres
 - https://github.com/OrdnanceSurvey/GeoDataViz-Toolkit
@@ -77,17 +80,17 @@ Voir le dossier [`notebooks`](notebooks) pour les scripts de préparation des do
 - [datagistips masterclass sur les flux d'artificialisation](https://datagistips.github.io/dataviz-masterclass/)
 
 ### Sources d'inspiration
-- https://toulouse-dataviz.fr/hackaviz/editions-precedentes/ : premiers prix dataviz
-- https://mtmx.github.io/ : blogger
-- flowingdata : actus et curation dataviz
+- https://toulouse-dataviz.fr/hackaviz/editions-precedentes/ : premiers **prix** dataviz
+- https://mtmx.github.io/ : **bloggueur**
+- flowingdata : actus et **curation** dataviz
 - https://www.reddit.com/r/MapPorn/
 - https://twitter.com/TerribleMaps
 
 ## Slides
-- A1 : la donnée et problématiques
-- A2 : dataviz
-
 [Accéder au dossier `slides` avec les présentations](Présentations)
+
+- A1 : la **donnée** et **problématiques**
+- A2 : **dataviz**
 
 <!--
 ### Analyses
@@ -103,8 +106,8 @@ Voir le dossier [`notebooks`](notebooks) pour les scripts de préparation des do
 -->
 
 ## Notes
-Lien Note BOX :  
+Lien Note **BOX** :  
 https://cerema.box.com/s/k6kew3nmxfdx23iaj33am7umv075q2pv
 
-Pad Colibris :  
+Pad **Colibris** :  
 https://pad.colibris-outilslibres.org/p/data
