@@ -29,6 +29,8 @@ Voir le dossier `data`
 - Couches haute résolution COPERNICUS : imperméabilisation, etc... (https://land.copernicus.eu/pan-european/high-resolution-layers)
 
 ### Préparées
+Voir le dossier `outputs`
+
 Mettre les liens vers les données
 
 - Occupation du sol (Corine Land Cover) → Fait Mathieu
@@ -49,9 +51,9 @@ Mettre les liens vers les données
 - [x] Distance aux arrêts de bus : friches_stops.gpkg
 
 #### Espaces
-- [x] Occupation du sol (dans un rayon d'1 km) : friches_ocsol.gpkg
+- [x] Occupation du sol (dans un rayon d'1 km) : friches_clc.gpkg
 	- Styles : https://github.com/igeofr/qgis_styles
-- [ ] Altitude moyenne
+- [x] Altitude moyenne :friches_altitude.gpkg
 - [ ] Végétalisation
 
 ## Analyses et bouts de code
@@ -74,16 +76,16 @@ Mettre les liens vers les données
 - Un exemple de jointure : NP
 - [ ] Treemap friches, artificialisation https://r-graph-gallery.com/treemap.html
 - Density et heat map https://trucvietle.me/r/tutorial/2017/01/18/spatial-heat-map-plotting-using-r.html
-- sunburst : NP
-- Différents tampons : MR
+- Sunburst : NP
+- [Différents tampons](notebooks/11_Tampons.Rmd)
 - dumbell : NP
 - streamgraph : https://datagistips.github.io/dataviz-masterclass/4-notebook-stream.html
 
 ### Bouts de code Bonus
-- [ ] Utiliser translation CityCompare pour voir la forme des friches et afficher les formes moyennes par région : MR
-- [ ] All the roads to : friche à mairie : MR
-- [ ] Images obliques birdseye : MR
-- DBScan http://www.sthda.com/english/wiki/wiki.php?id_contents=7940
+- [ ] Utiliser pour déplacer un objet (par ex. une commune) sur un objet pour comparer les tailles : https://gist.github.com/datagistips/6cd56402b7fadc1f858d1cdfa717b3e7
+- [ ] Utilisation de l'API IGN pour calculer des itinéraires : https://gist.github.com/datagistips/799ca3e4c4af32dfd97dc8a2b4959674
+- [ ] Images obliques birdseye : https://gist.github.com/datagistips/ad7e5ad9da4b94f3a7f5d1b9f652cf66
+- DBScan : http://www.sthda.com/english/wiki/wiki.php?id_contents=7940
 
 ## Ressources
 ### Tutoriaux
