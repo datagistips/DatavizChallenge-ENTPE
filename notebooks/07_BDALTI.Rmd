@@ -60,7 +60,7 @@ slope <- terrain(r, opt = 'slope', units = 'degrees')
 
 Pente au niveau des points
 ```{r}
-# friches_points$pente <- raster::extract(slope, friches_points)
+friches_points$pente <- raster::extract(slope, friches_points)
 ```
 
 Export
