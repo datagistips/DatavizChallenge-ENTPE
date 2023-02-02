@@ -1,0 +1,85 @@
+---
+title: "Croisement avec Corine Land Cover"
+output: html_notebook
+---
+
+```{r}
+library(sf)
+library(tidyverse)
+```
+
+## Corine Land Cover
+On télécharge les données CLC
+
+A voir !!
+```{r}
+download.file("https://data.cquest.org/corine_land_cover/fr/CLC18_SHP__FRA_2018-11-16.7z", "../data/CLC18_SHP__FRA_2018-11-16.7", mode = "wb")
+```
+
+On dézippe les données
+```{r}
+system('"C:\Program Files\7-Zip\7z.exe" x CLC18_SHP__FRA_2018-11-16.7z')
+```
+
+On lit les données CLC
+```{r}
+clc <- st_read("../data/CLC18_SHP__FRA_2018-11-16/1_DONNEES_LIVRAISON_2018-11-16/CLC18_SHP__FRA_2018-11-16/CLC18_FR.shp")
+```
+
+## Friches
+On télécharge les données friches points et surfaces
+```{r}
+download.file("https://github.com/CEREMA/cartofriches/blob/main/shinyapp/data/friches/friches_surfaces.gpkg?raw=true", "../data/friches_surfaces.gpkg", mode = "wb")
+
+download.file("https://github.com/CEREMA/cartofriches/blob/main/shinyapp/data/friches/friches_points.gpkg?raw=true", "../data/friches_points.gpkg", mode = "wb")
+```
+
+On explore les données
+```{r}
+f_points <- st_read("../data/friches_points.gpkg")
+f_surfaces <- st_read("../data/friches_surfaces.gpkg")
+```
+On regarde les identifiants
+```{r}
+f_points %>% pull(site_id) %>% head
+```
+
+```{r}
+f_surfaces %>% pull(site_id) %>% head
+```
+
+## Tampons
+On réalise des tampons sur les points sur des distances de 250, 500 et 1000 mètres, seulement pour les friches qualifiées
+```{r}
+f_1000 <- f_points %>% dplyr::filter(source_r != "MTE") %>% st_transform(2154) %>% st_buffer(1000)
+```
+
+On les exporte
+```{r}
+st_write(f_1000, "../outputs/f_1000.gpkg", delete_dsn = T)
+```
+
+## Intersections
+On réalise les intersections
+```{r}
+# i <- st_intersects(f_500, clc)
+# for(i in 1:nrow(f_1000)) {
+out <- vector(mode = "list")
+
+# for(i in 1:2) {
+start_time <- Sys.time()
+# for(i in 1:1) {
+for(i in 1:nrow(f_1000)) {
+  print(i)
+  feat <- f_1000[i, ] %>% select(id)
+  feat_clc <- st_intersection(feat, clc)
+  out[[i]] <- feat_clc
+  print(Sys.time() - start_time)
+}
+
+res <- do.call(rbind, out)
+```
+
+```{r}
+st_write(res, "../outputs/res.gpkg", delete_dsn = T)
+```

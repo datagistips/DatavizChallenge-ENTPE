@@ -1,0 +1,96 @@
+---
+title: "BDALTI"
+output: html_notebook
+---
+
+On récupère l'altitude et la pente sur chaque friche
+
+Téléchargement de la BDALTI
+```{r}
+download.file("https://data.cquest.org/ign/bdalti/BDALTIV2-75M_ASC_LAMB93_FXX_2013-10-01.7z", "../data/BDALTIV2-75M_ASC_LAMB93_FXX_2013-10-01.7z", mode = "wb")
+```
+Extraction des données données BDALTI
+```{r}
+system('"C:\Program Files\7-Zip\7z.exe" x BDALTIV2-75M_ASC_LAMB93_FXX_2013-10-01.7z')
+```
+
+Tableau d'assemblage
+```shell
+C:\FWTools2.4.7\setfw.bat
+gdaltindex ta.shp *.asc
+ogr2ogr -f "csv" ta.csv ta.shp
+```
+Lecture du CSV
+```{r}
+f <- read.csv("../data/BDALTIV2-75M_ASC_LAMB93_FXX_2013-10-01/1_DONNEES_LIVRAISON_2013-10-00130/BDALTIV2_MNT_75M_LAMB93_IGN69_FRANCEMETRO20130920/ta.csv/ta.csv")
+```
+
+Conversion en mono-dalle
+```bash
+gdalbuildvrt -input_file_list ta.csv\ta.csv ta.vrt
+gdal_translate -of AAIGrid ta.vrt ta.asc
+```
+
+Ouverture de la donnée raster consolidée :
+```{r}
+library(raster)
+r <- raster("../data/bdalti/BDALTIV2-75M_ASC_LAMB93_FXX_2013-10-01/1_DONNEES_LIVRAISON_2013-10-00130/BDALTIV2_MNT_75M_LAMB93_IGN69_FRANCEMETRO20130920/ta.asc")
+```
+
+Ouverture des données friches :
+```{r}
+library(sf)
+friches_points <- st_read("../data/friches/02_preprocessing/friches_points.gpkg") %>% st_set_crs(4326) %>% st_transform(2154) %>% dplyr::select(site_pk)
+```
+Altitudes au niveau des points
+```{r}
+v <- raster::extract(r, friches_points)
+```
+
+Ajout des informations d'altitude
+```{r}
+friches_points$altitude <- v
+```
+
+Calcul de la pente (prend du temps)
+```{r}
+crs(r) <- CRS("+init=epsg:2154")
+slope <- terrain(r, opt = 'slope', units = 'degrees')
+```
+
+Pente au niveau des points
+```{r}
+friches_points$pente <- raster::extract(slope, friches_points)
+```
+
+Export
+```{r}
+st_write(friches_points, "../outputs/friches_altitude.gpkg", delete_dsn = T)
+```
+
+
+## Old
+Ouverture du tableau d'assemblage
+```{r}
+ta <- st_read("../data/BDALTIV2-75M_ASC_LAMB93_FXX_2013-10-01/1_DONNEES_LIVRAISON_2013-10-00130/BDALTIV2_MNT_75M_LAMB93_IGN69_FRANCEMETRO20130920/ta.shp") %>% st_set_crs(2154)
+```
+Intersections friches et tableau d'assemblage
+```{r}
+path <- "../data/BDALTIV2-75M_ASC_LAMB93_FXX_2013-10-01/1_DONNEES_LIVRAISON_2013-10-00130/BDALTIV2_MNT_75M_LAMB93_IGN69_FRANCEMETRO20130920/"
+out <- vector(mode = "list")
+start = Sys.time()
+# for(i in 1:nrow(friches_points)) {
+for(i in 1:10) {
+  print(i)
+  feat <- friches_points[i, ]
+  w <- st_intersects(feat, ta)
+  dalle <- ta$location[as.numeric(w)]
+  r <- raster(file.path(path, dalle))
+  crs(r) <- CRS("+init=epsg:2154")
+  slope <- terrain(r, opt = 'slope', units = 'degrees')
+  v_altitude <- raster::extract(r, feat)
+  v_slope <- raster::extract(slope, feat)
+  out[[i]] <- data.frame(altitude = v_altitude, slope = v_slope)
+  print(Sys.time() - start)
+}
+```

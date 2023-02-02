@@ -28,6 +28,7 @@ Voir le dossier [`notebooks`](notebooks) pour les scripts de préparation des do
 - [x] [Occupation du sol (dans un rayon d'1 km)](outputs/friches_clc.gpkg)
 	- Styles : https://github.com/igeofr/qgis_styles
 - [x] [Altitude et pente par friches](outputs/friches_altitude.gpkg)
+- [x] [Elongation de la friche (friche or chips)](outputs/friches_and_chips.gpkg)
 - [x] Zonage d’urbanisme (directement dans les données)
 
 ## Données autres potentiellement intéressantes

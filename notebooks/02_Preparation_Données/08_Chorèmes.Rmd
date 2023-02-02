@@ -1,0 +1,42 @@
+---
+title: "Chorèmes"
+output: html_notebook
+---
+
+```{r}
+download.file("https://www.comeetie.fr/galerie/choremes/choremesvt.zip", "../data/choremesvt.zip", mode = "wb")
+```
+
+```{r}
+system('"C:\\Program Files\\7-Zip\\7z.exe" x "..\\data\\choremesvt.zip"')
+```
+Liste des répertoires
+```{r}
+l <- list.files("../data/choremesvt - Copie/choremesvt/", ".", full.names = T)
+```
+On va créer la couche chorèmes 11
+```{r}
+l <- list.files("../data/choremesvt - Copie/choremesvt/11/", ".", recursive = T, full.names = T)
+```
+```{r}
+length(l)
+```
+
+```{r, warning = FALSE, message = FALSE, results = FALSE}
+options(warn=-1)
+
+library(sf)
+out <- lapply(1:length(l), function(i) {
+  print(i)
+  elt <- l[[i]]
+  st_read(elt)
+  })
+```
+
+```{r}
+res <- do.call(rbind, out)
+```
+
+
+
+
