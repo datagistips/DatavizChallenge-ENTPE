@@ -60,8 +60,8 @@ DataGTFS <- st_read("../outputs/friches_stops.gpkg")  %>% st_set_crs(4326)
 On effectue les jointures
 ```{r}
 # Jointure sur les friches
-DataJointure1 <- DataFriches_points %>%
-  st_join(DataMairie, by = site_pk)
+# DataJointure1 <- DataFriches_points %>%
+#   st_join(DataMairie, by = site_pk)
 
 DataJointure1 <- DataFriches_points %>% as.data.frame %>%
   left_join(DataMairie %>% as.data.frame(), by = "site_pk")
