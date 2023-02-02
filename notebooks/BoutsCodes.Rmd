@@ -3,6 +3,13 @@ title: "Bouts de codes pour analyser les données Cartofriches"
 output: html_notebook
 ---
 
+# Installation des packages
+```{r}
+install.packages("sf")
+install.packages("tidyverse")
+```
+
+
 # Import des données
 
 1)  Les données sont présentes dans le dossier "data"
@@ -13,7 +20,7 @@ output: html_notebook
 library(sf)
 library(dplyr)
 
-setwd("C/Users/nicolas.pele/Documents/GitHub/DatavizChallenge-ENTPE")
+# setwd("C/Users/nicolas.pele/Documents/GitHub/DatavizChallenge-ENTPE")
   
 DataFriches_surfaces <- st_read("../data/friches/02_preprocessing/friches_surfaces.gpkg")
 DataFriches_points <- st_read("../data/friches/02_preprocessing/friches_points.gpkg")
@@ -39,14 +46,14 @@ DataGroupby <- DataFriches_points %>%
 **EXEMPLE 2 : Jointure**
 On importe les données contextuelles
 ```{r}
-DataArtificiation <- read.csv2("~/GitHub/DatavizChallenge-ENTPE/outputs/obs_artif_conso_com_2009_2021.csv")
+DataArtificiation <- read.csv2("../outputs/obs_artif_conso_com_2009_2021.csv")
 
-DataZonageInsee <- read.csv2("~/GitHub/DatavizChallenge-ENTPE/outputs/INSEE_commune.csv")
+DataZonageInsee <- read.csv2("../outputs/INSEE_commune.csv")
 
-DataAltitude <- st_read("~/GitHub/DatavizChallenge-ENTPE/outputs/friches_altitude.gpkg")  %>% st_set_crs(4326)
-DataMairie <- st_read("~/GitHub/DatavizChallenge-ENTPE/outputs/friches_mairie.gpkg") %>% st_set_crs(4326)
-DataCLC <- st_read("~/GitHub/DatavizChallenge-ENTPE/outputs/friches_clc.gpkg")  %>% st_set_crs(4326)
-DataGTFS <- st_read("~/GitHub/DatavizChallenge-ENTPE/outputs/friches_stops.gpkg")  %>% st_set_crs(4326)
+DataAltitude <- st_read("../outputs/friches_altitude.gpkg")  %>% st_set_crs(4326)
+DataMairie <- st_read("../outputs/friches_mairie.gpkg") %>% st_set_crs(4326)
+DataCLC <- st_read("../outputs/friches_clc.gpkg")  %>% st_set_crs(4326)
+DataGTFS <- st_read("../outputs/friches_stops.gpkg")  %>% st_set_crs(4326)
 ```
 
 
@@ -56,9 +63,12 @@ On effectue les jointures
 DataJointure1 <- DataFriches_points %>%
   st_join(DataMairie, by = site_pk)
 
+DataJointure1 <- DataFriches_points %>% as.data.frame %>%
+  left_join(DataMairie %>% as.data.frame(), by = "site_pk")
+
 # Jointure à la commune
 DataJointure2 <- DataFriches_points %>% as.data.frame %>%
-  left_join(DataArtificiation, by = c('comm_insee' = 'idcom'))
+  left_join(DataArtificiation %>% as.data.frame, by = c('comm_insee' = 'idcom'))
 ```
 
 **EXEMPLE 3 : Sunburst**
