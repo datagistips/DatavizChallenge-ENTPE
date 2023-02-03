@@ -1,0 +1,28 @@
+---
+title: "Nombre de friches par département"
+output: html_notebook
+---
+
+```{r}
+library(sf)
+library(tidyverse)
+```
+
+```{r}
+f <- st_read("../../data/friches/02_preprocessing/friches_points.gpkg")
+```
+
+```{r}
+stats_dep <- f %>% 
+  group_by(dep) %>% 
+  summarize(surface = sum(site_surface)) %>% 
+  arrange(desc(surface))
+```
+
+```{r}
+View(stats_dep)
+```
+
+
+
+
